@@ -1,0 +1,19 @@
+<div class="event-tracker-container">
+  <h2>Campus Event Tracker</h2>
+
+  <div class="event-inputs">
+    <input type="text" placeholder="Event Title" [(ngModel)]="title" />
+    <input type="date" [(ngModel)]="date" />
+    <button class="add-btn" (click)="addEvent()">Add Event</button>
+  </div>
+
+  <ul class="event-list" *ngIf="events.length > 0; else noEvents">
+    <li *ngFor="let event of events">
+      <strong>{{ event.title }}</strong> - <span>{{ event.date }}</span>
+    </li>
+  </ul>
+
+  <ng-template #noEvents>
+    <div class="no-events">No events saved.</div>
+  </ng-template>
+</div>
